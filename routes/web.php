@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
+// Get domain from config
+$appDomain = config('app.domain');
+
 // Main application routes (for main domain)
-Route::domain('saas-platform.localhost')->group(function () {
+Route::domain($appDomain)->group(function () {
     Route::get('/', function () {
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
@@ -48,7 +51,8 @@ Route::domain('saas-platform.localhost')->group(function () {
 
 // Tenant routes (for subdomains)
 // Handle both with and without ports for local development
-Route::domain('{subdomain}.saas-platform.localhost')->group(function () {
+$appDomain = config('app.domain');
+Route::domain('{subdomain}.' . $appDomain)->group(function () {
     // Bind the subdomain parameter for route generation
     Route::bind('subdomain', function ($value) {
         return $value;

@@ -56,6 +56,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Base Path
+    |--------------------------------------------------------------------------
+    |
+    | This is the base path/subdirectory where the application is hosted.
+    | Leave empty if hosted at root. For subdirectory hosting, set to the
+    | subdirectory path (e.g., '/saas-platform' for 160.250.204.218/saas-platform)
+    |
+    */
+
+    'base_path' => env('APP_BASE_PATH', ''),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Domain
     |--------------------------------------------------------------------------
     |

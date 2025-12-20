@@ -4,6 +4,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build && vite build --ssr && vite build && vite build --ssr --ssr",
+        "build:subdirectory": "cross-env ASSET_URL=/saas-platform vite build && cross-env ASSET_URL=/saas-platform vite build --ssr",
         "dev": "vite"
     },
     "devDependencies": {
